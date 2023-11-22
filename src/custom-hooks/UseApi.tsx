@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react"
 
-const useApi = (url: RequestInfo | URL) => {
+export const useApi = (url: RequestInfo | URL) => {
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
     const fetchApi = async () => {
         let data;
         const response = await fetch(url).catch(error => {
-            console.log(error);
+            throw new Error(error);
         });
-        if (response) {
+        if (response && response.status) {
             data = await response?.json().catch((error: any) => {
-                console.log(error);
+                throw new Error(error);
             });
         }
         setLoading(false)
@@ -24,5 +24,3 @@ const useApi = (url: RequestInfo | URL) => {
 
     return { loading, data }
 };
-
-export default useApi;

@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import Post from './Post';
+import { Post } from './Post';
 import { PostContext } from '../context/PostContext';
 import { PostType } from '../types/PostType';
 
-const PostList: React.FC = () => {
+export const PostList: React.FC = () => {
   const { state } = useContext(PostContext);
   const postData: PostType[] = state?.arrayDataMap.get('postData');
 
@@ -22,6 +22,4 @@ const PostList: React.FC = () => {
         </div>
       </div>
   );
-  };
-
-export default PostList;
+};

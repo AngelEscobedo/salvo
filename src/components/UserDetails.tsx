@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { PostContext } from '../context/PostContext';
 
-const UserDetails: React.FC = () => {
+export const UserDetails: React.FC = () => {
     const { state } = useContext(PostContext);
     const { userId } = useParams();
     const user = state.userDataMap.get(userId ? Number(userId) : null);
@@ -21,5 +21,3 @@ const UserDetails: React.FC = () => {
         </div>
     );
    };
-
-export default UserDetails;

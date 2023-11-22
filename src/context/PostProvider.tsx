@@ -4,7 +4,7 @@ import { PostReducer } from "./PostReducer";
 import { PostState } from "../types/PostState";
 import { PostType } from '../types/PostType';
 import { UserType } from '../types/UserType';
-import useApi from '../custom-hooks/UseApi';
+import { useApi } from '../custom-hooks/UseApi';
 
 const postDataMap = new Map();
 const userDataMap = new Map();
@@ -14,7 +14,7 @@ interface Props {
     children: JSX.Element | JSX.Element[]
 }
 
-export function PostProvider({children}: Props) {
+export const  PostProvider = ({children}: Props) => {
     const { data: postData }: {loading: boolean, data: PostType[]} = useApi('https://jsonplaceholder.typicode.com/posts');
     const { data: userData }: {loading: boolean, data: UserType[]} = useApi('https://jsonplaceholder.typicode.com/users');
     

@@ -1,8 +1,15 @@
 import { useNavigate } from 'react-router-dom';
-import { PostProps } from '../types/PostProps';
-import useTruncate from '../custom-hooks/UseTruncate';
+import { useTruncate } from '../custom-hooks/UseTruncate';
+import { PostType } from '../types/PostType';
+import { UserType } from '../types/UserType';
 
-const Post = ({postData, userData}: PostProps) => {
+export interface PostProps {
+  postData: PostType;
+  userData: UserType;
+}
+
+
+export const Post = ({postData, userData}: PostProps) => {
   const navigate = useNavigate();
 
  return (
@@ -12,5 +19,3 @@ const Post = ({postData, userData}: PostProps) => {
     </div>
  );
 };
-
-export default Post;

@@ -1,12 +1,12 @@
 import React from 'react';
 import './app.scss';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PostList from './components/PostList';
+import { PostList } from './components/PostList';
 import { PostProvider } from './context/PostProvider';
-import PostItem from './components/PostItem';
-import UserDetails from './components/UserDetails';
+import { PostItem } from './components/PostItem';
+import { UserDetails } from './components/UserDetails';
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   return (
     <PostProvider>
       <div className="app">
@@ -54,5 +54,3 @@ const App: React.FC = () => {
     </PostProvider>
   );
 };
-
-export default App;

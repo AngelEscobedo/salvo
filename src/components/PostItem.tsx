@@ -4,7 +4,7 @@ import { PostContext } from '../context/PostContext';
 import { CommentsType } from '../types/CommentsType';
 import useApi from '../custom-hooks/UseApi';
 
-const PostItem: React.FC = () => {
+export const PostItem: React.FC = () => {
     const { state } = useContext(PostContext);
     const { postId } = useParams();
     const post = state.postDataMap.get(postId ? Number(postId) : null);
@@ -35,5 +35,3 @@ const PostItem: React.FC = () => {
         </div>
     );
    };
-
-export default PostItem;
