@@ -2,13 +2,13 @@ import { Component } from 'react';
 
 interface ErrorBoundaryState {
    hasError: boolean;
-   error: 
+   error: Error
 }
 
 export class ErrorBoundary extends Component<{}, ErrorBoundaryState> {
    constructor(props: {}) {
       super(props);
-      this.state = { hasError: false, error: {} };
+      this.state = { hasError: false, error: { message: '', name: ''} };
    }
 
    static getDerivedStateFromError(error: any) {

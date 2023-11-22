@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { PostContext } from '../context/PostContext';
 import { CommentsType } from '../types/CommentsType';
-import useApi from '../custom-hooks/UseApi';
+import { useApi } from '../custom-hooks/UseApi';
 
 export const PostItem: React.FC = () => {
     const { state } = useContext(PostContext);
