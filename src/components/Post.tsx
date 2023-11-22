@@ -1,16 +1,14 @@
-import React from 'react';
-import { Post as PostType } from '../types/Post';
+import { useNavigate } from 'react-router-dom';
+import { PostProps } from '../types/PostProps';
+import useTruncate from '../custom-hooks/UseTruncate';
 
-interface PostProps {
- post: PostType;
-}
-
-const Post: React.FC<PostProps> = ({ post }) => {
+const Post = ({postData, userData}: PostProps) => {
+  const navigate = useNavigate();
 
  return (
-    <div className="post">
-      <h2>{post.title}</h2>
-      <p>{post.body}</p>
+    <div className="post-container justify-content-center">
+      <h4 onClick={() => navigate(`/postItem/${postData.id}`)} className='post-title'> {useTruncate(postData?.title, 40)} </h4>
+      <h6 onClick={() => navigate(`/author/${userData.id}`)} className='post-author'>By: {userData?.name} </h6>
     </div>
  );
 };
